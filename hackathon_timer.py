@@ -30,8 +30,7 @@ def timeout():
 
 class timer(Thread):
 	def run(self):
-		webbrowser.open("http://localhost:5000/timeout")
-		#webbrowser.open("http://localhost:5000/start", 1)
+		webbrowser.open("http://localhost:5000/start", 1)
 		time.sleep(5)
 		webbrowser.open("http://localhost:5000/notification")
 		time.sleep(5)

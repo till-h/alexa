@@ -3,6 +3,7 @@ from flask_ask import Ask, statement
 import random
 import time
 from threading import Thread
+import webbrowser
 
 app = Flask(__name__)
 ask = Ask(app, '/')
@@ -15,12 +16,27 @@ def hackathon_timer(timeout, timeout_units, notification, notification_units):
 	timekeeper.start()
 	return statement(text).simple_card('Timekeeper', text)
 
+@app.route('/start')
+def start():
+	return 'Starting...'
+
+@app.route('/notification')
+def notification():
+	return 'Notification time!'
+
+@app.route('/timeout')
+def timeout():
+	return render_template('youtube.html')
+
 class timer(Thread):
 	def run(self):
-		for i in range(1):
-			time.sleep(10)
-			print("iteration no: " + str(i))
-
+		webbrowser.open("http://localhost:5000/timeout")
+		#webbrowser.open("http://localhost:5000/start", 1)
+		time.sleep(5)
+		webbrowser.open("http://localhost:5000/notification")
+		time.sleep(5)
+		webbrowser.open("http://localhost:5000/timeout")
+		
 
 
 if __name__ == '__main__':

@@ -1,0 +1,3 @@
+random_number: Hey Till, your random number between {{ lowerLimit }} and {{ upperLimit }} is {{ number }}
+hackathon_timer: You will be notified after {{ notification }} {{ notification_units }} and your time will be over after {{ timeout }} {{ timeout_units }}
+timer: Your time is up

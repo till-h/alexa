@@ -22,6 +22,7 @@ def gpio_controller(state):
 		instruction = GPIO.LOW
 	else:
 		text = 'Sorry, I did not understand that instruction.'
+	GPIO.output(GPIO_PIN, instruction)
 	return statement(text).simple_card('GPIO Controller', text)
 
 		
